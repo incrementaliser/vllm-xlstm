@@ -29,13 +29,19 @@ Results (1× NVIDIA A40, bf16, greedy, gen=128, medium prompt):
 
 Greedy 16-token ids match **HF-triton**, not HF-native (kernel numerics).
 
-Some of the visualsed results:
-[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/batch_tok_s_vs_batch_size.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/batch_tok_s_vs_batch_size.png)
-[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/decode_tok_s_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/decode_tok_s_vs_input_len.png)
-[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/e2e_sec_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/e2e_sec_vs_input_len.png)
-[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/prefill_tok_s_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/prefill_tok_s_vs_input_len.png)
-[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/tpot_ms_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/tpot_ms_vs_input_len.png)  
-[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/ttft_ms_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/ttft_ms_vs_input_len.png)
+Some of the visualised results (1× A40, from `artifacts/runs/20260817_221132_vllm-speed`):
+
+![Batch throughput vs batch size](artifacts/runs/20260817_221132_vllm-speed/plots/batch_tok_s_vs_batch_size.png)
+
+![Decode tok/s vs input length](artifacts/runs/20260817_221132_vllm-speed/plots/decode_tok_s_vs_input_len.png)
+
+![E2E vs input length](artifacts/runs/20260817_221132_vllm-speed/plots/e2e_sec_vs_input_len.png)
+
+![Prefill tok/s vs input length](artifacts/runs/20260817_221132_vllm-speed/plots/prefill_tok_s_vs_input_len.png)
+
+![TPOT vs input length](artifacts/runs/20260817_221132_vllm-speed/plots/tpot_ms_vs_input_len.png)
+
+![TTFT vs input length](artifacts/runs/20260817_221132_vllm-speed/plots/ttft_ms_vs_input_len.png)
 
 
 ## Weights are not in git
