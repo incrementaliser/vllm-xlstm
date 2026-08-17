@@ -1,0 +1,8 @@
+{
+  "run_dir": "/mnt/data/shared/aa2070/vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed",
+  "parity_ok": true,
+  "hf_native_decode": 29.090989521744508,
+  "vllm_decode": 34.61285777711672,
+  "gate": "PASS_KERNEL (matches HF-triton, not native kernels)",
+  "vllm_engine_note": "vllm package not installed"
+}

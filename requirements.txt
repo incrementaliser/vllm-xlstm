@@ -1,0 +1,24 @@
+# CUDA stack: mlstm_kernels requires torch.amp.custom_fwd/custom_bwd (PyTorch >= 2.4).
+# Adjust the extra-index URL if you need a different CUDA (cu121, cu124, …).
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch==2.4.1+cu118
+
+# xLSTM runtime (NXAI Community License — weights are not in this repo)
+xlstm==2.0.0
+mlstm_kernels>=2.0.4
+
+# Transformers: pin compatible with huggingface-hub used for NX-AI/xLSTM-7b
+transformers==5.0.0rc0
+huggingface-hub==1.2.4
+numpy==1.26.4
+setuptools>=70.0.0
+accelerate>=0.26.0
+tokenizers>=0.15.0
+safetensors>=0.4.0
+tqdm
+pyyaml
+matplotlib>=3.8.0
+
+# Optional: real vLLM engine. Current vLLM often wants a newer torch than 2.4.1+cu118.
+# The published 1-GPU numbers did not use vllm.LLM (package was not installed).
+# vllm

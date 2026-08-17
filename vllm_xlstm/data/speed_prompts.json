@@ -1,0 +1,17 @@
+[
+  {
+    "name": "short",
+    "approx_tokens": 32,
+    "prompt": "Write a concise technical summary of matrix memory in recurrent language models and why fixed-size state helps long-context inference."
+  },
+  {
+    "name": "medium",
+    "approx_tokens": 256,
+    "prompt": "Explain xLSTM and mLSTM for a systems audience. Cover exponential gating, matrix cell state, normalizer and max-state stabilization, soft-caps on gates and logits, and how decode differs from transformer KV-cache models in memory growth. Then compare Hugging Face Transformers with a CUDA-graph serving path: tokenizer parity, greedy decoding, kernel choice (native vs Triton step), and what metrics matter for usefulness (TTFT including prefill, TPOT, decode tokens per second, end-to-end latency, peak VRAM). Keep the tone precise and avoid marketing language. End with a short checklist for a fair benchmark on one GPU."
+  },
+  {
+    "name": "long",
+    "approx_tokens": 1024,
+    "prompt": "You are preparing an internal engineering report on whether an out-of-tree vLLM plugin plus a CUDA-graph decoder is a useful inference path for NX-AI xLSTM-7B. Produce a structured draft with these sections: (1) Problem statement — local serving, memory, and decode speed; (2) Architecture notes — recurrent state C/n/m vs attention KV, soft-caps, gated FFN; (3) Baseline — Hugging Face Transformers bf16 with native vs Triton step kernels; (4) Contender — plugin registration of xLSTMForCausalLM, custom ops wrapping mlstm_kernels, CUDA-graph capture of S=1 decode; (5) Fairness protocol — same prompts, greedy sampling, fixed gen length 128, warmup and repeated timed runs, report mean and std; (6) Workloads — short/medium/long prefills and optional batch throughput; (7) Expected narrative — graphs may win decode vs HF-native, prefill already uses chunkwise Triton, vllm.LLM continuous batching is still WIP; (8) Risks — tokenizer mismatches, state dtype, gate biases, incorrect head dims, CUDA graph capture failures on multi-device maps; (9) Decision criteria — when to prefer HF, when to prefer the graph engine, what to leave for follow-up (real vLLM scheduler, tensor parallel, HTTP serve). Expand each section with concrete operational detail suitable for pasting numbers later. Repeat key fairness rules so the draft is self-contained even if tables are empty."
+  }
+]

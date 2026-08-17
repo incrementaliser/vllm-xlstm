@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# experiment outputs (checked-in examples/ is the public 1-GPU excerpt)
+artifacts/logs/
+
+# Env / secrets / weights (never commit 7B checkpoints)
+.env
+*.pt
+*.bin
+*.safetensors
+*.gguf
+
+# caches
+**/outputs/
+**/cache/
+**/.cache/
+.huggingface/

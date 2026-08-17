@@ -1,0 +1,16 @@
+vllm-xlstm
+Copyright 2026 the vllm-xlstm authors
+
+This product includes materials developed at NXAI that are licensed under
+the NXAI Community License, Copyright © NXAI GmbH, All Rights Reserved.
+
+Built with technology from NXAI.
+
+Runtime dependencies `xlstm` and `mlstm_kernels`, and Hub weights
+`NX-AI/xLSTM-7b`, are licensed under the NXAI Community License. This
+repository does not redistribute those weights. Download them yourself:
+
+    huggingface-cli download NX-AI/xLSTM-7b
+
+See https://huggingface.co/NX-AI/xLSTM-7b for the full license text.
+Commercial use above NXAI's revenue threshold may require a separate license.
