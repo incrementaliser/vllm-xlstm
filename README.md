@@ -6,7 +6,7 @@ inference engine for [NX-AI/xLSTM-7b](https://huggingface.co/NX-AI/xLSTM-7b).
 This is **not** a vLLM core PR and **not** part of NX-AI/xLSTM. See
 [docs/UPSTREAM.md](docs/UPSTREAM.md) for how this relates to vLLM and NX-AI.
 
-## Status (read this)
+## Status
 
 This repo is an **out-of-tree vLLM plugin plus a CUDA-graph inference engine**.
 
@@ -17,7 +17,7 @@ This repo is an **out-of-tree vLLM plugin plus a CUDA-graph inference engine**.
 The plugin class is a skeleton. The published 1-GPU run did not have the
 `vllm` package installed.
 
-Honest numbers (1× NVIDIA A40, bf16, greedy, gen=128, medium prompt):
+Results (1× NVIDIA A40, bf16, greedy, gen=128, medium prompt):
 
 
 | backend                  | decode tok/s | TTFT ms | TPOT ms |
@@ -28,7 +28,15 @@ Honest numbers (1× NVIDIA A40, bf16, greedy, gen=128, medium prompt):
 
 
 Greedy 16-token ids match **HF-triton**, not HF-native (kernel numerics).
-Full tables and plots: [examples/report.md](examples/report.md).
+
+Some of the visualsed results:
+[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/batch_tok_s_vs_batch_size.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/batch_tok_s_vs_batch_size.png)
+[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/decode_tok_s_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/decode_tok_s_vs_input_len.png)
+[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/e2e_sec_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/e2e_sec_vs_input_len.png)
+[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/prefill_tok_s_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/prefill_tok_s_vs_input_len.png)
+[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/tpot_ms_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/tpot_ms_vs_input_len.png)  
+[vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/ttft_ms_vs_input_len.png](vllm-xlstm/artifacts/runs/20260817_221132_vllm-speed/plots/ttft_ms_vs_input_len.png)
+
 
 ## Weights are not in git
 
