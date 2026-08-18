@@ -3,9 +3,7 @@
 Out-of-tree [vLLM](https://github.com/vllm-project/vllm) **plugin** and CUDA-graph
 inference engine for [NX-AI/xLSTM-7b](https://huggingface.co/NX-AI/xLSTM-7b).
 
-This is **not** a vLLM core PR and **not** part of NX-AI/xLSTM. See
-[docs/UPSTREAM.md](docs/UPSTREAM.md) for how this relates to vLLM and NX-AI.
-
+This is **not** a vLLM core PR and **not** part of NX-AI/xLSTM.
 ## Status
 
 This repo is an **out-of-tree vLLM plugin plus a CUDA-graph inference engine**.
@@ -14,8 +12,7 @@ This repo is an **out-of-tree vLLM plugin plus a CUDA-graph inference engine**.
 - The speed path that beat Hugging Face is `GraphDecodeEngine`: HF weights +
 `mlstm_kernels` + PyTorch CUDA graphs. It does **not** go through `vllm.LLM`.
 - Full `vllm serve NX-AI/xLSTM-7b` / `LLM(model="NX-AI/xLSTM-7b")` is **WIP**.
-The plugin class is a skeleton. The published 1-GPU run did not have the
-`vllm` package installed.
+The plugin class is a skeleton.
 
 Results (1× NVIDIA A40, bf16, greedy, gen=128, medium prompt):
 
@@ -70,12 +67,11 @@ uv pip install -e .
 ```
 
 `requirements.txt` pins `torch==2.4.1+cu118`. Change the extra-index URL if you
-need another CUDA. Optional `vllm` is commented out: current vLLM often wants a
-newer torch than this pin.
+need another CUDA.
 
 ## Reproduce the speed report
 
-Needs a CUDA GPU (login nodes without CUDA will exit).
+Needs a CUDA GPU.
 
 ```bash
 uv run xlstm-vllm-speed          # 1 GPU
@@ -84,9 +80,7 @@ cat artifacts/runs/<DATE_TIME_EXPERIMENT>/report.md
 # e.g. artifacts/runs/20260817_213700_vllm-speed/report.md  (UTC)
 ```
 
-Pass `--hf-dir /path/to/snapshot` to skip Hub lookup. Metrics glossary:  
-[docs/metrics.md](docs/metrics.md) (TTFT **includes** prefill; decode tok/s =  
-1000/TPOT).
+Pass `--hf-dir /path/to/snapshot` to skip Hub lookup.
 
 Create bash files depending on your cluster, and run the above on your GPU to reproduce the reported results.
 
